@@ -8,7 +8,9 @@ const Home = () => {
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    setTasks(storedTasks);
+    setTasks((prevTasks) => [...prevTasks, ...storedTasks]);
+
+    // setTasks(storedTasks);
   }, []);
 
   useEffect(() => {
