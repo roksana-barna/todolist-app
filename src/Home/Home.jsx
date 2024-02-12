@@ -3,7 +3,7 @@ import AddTaskForm from '../Components/AddTaskForm/AddTaskForm';
 import TaskList from '../Components/TaskList/TaskList';
 
 const Home = () => {
-    const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
 
   useEffect(() => {
@@ -47,13 +47,17 @@ const Home = () => {
 
   const completedTasksCount = tasks.filter((task) => task.completed).length;
 
-    return (
-        
-               <div className="max-w-md mx-auto mt-8 p-4">
-      <h1 className="text-2xl font-bold mb-4">Todo List</h1>
-      <AddTaskForm addTask={addTask} />
+  return (
+    <div className='md-flex'>
+
+    <div className="max-w-md mx-auto mt-8 p-4">
+     
+      <h1 className="text-2xl font-bold mb-4 lg:text-center font-serif bg-amber-100">Todo List</h1>
+     
+
+     <AddTaskForm addTask={addTask} />
       <div className="mt-4">
-        <label className="mr-2">Filter by Priority:</label>
+        <label className="mr-2 lg:ml-48 mt-5 ">Filter by Priority:</label>
         <select
           className="border p-1"
           value={filter}
@@ -71,14 +75,15 @@ const Home = () => {
         toggleTaskStatus={toggleTaskStatus}
         deleteTask={deleteTask}
       />
-      
-      <p className="mt-2">
+
+     <p className="mt-2">
         Total Tasks: {tasks.length} | Completed Tasks: {completedTasksCount}
       </p>
     </div>
+    </div> 
   );
 };
-            
-     
+
+
 
 export default Home;

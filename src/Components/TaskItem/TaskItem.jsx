@@ -19,27 +19,26 @@ const TaskItem = ({ task, editTask, toggleTaskStatus, deleteTask }) => {
   };
 
   return (
-    <div className="mb-2 p-2 border rounded flex items-center justify-between">
+    <div className="mb-2 p-2 border rounded flex items-center justify-between bg-lime-200">
       {editing ? (
         <TaskForm task={task} onSave={handleSave} onCancel={handleCancel} />
       ) : (
         <>
-          <div>
+          <div className="flex">
             <input
               type="checkbox"
               checked={task.completed}
               onChange={() => toggleTaskStatus(task.id)}
               className="mr-2"
             />
-            {/* <span className={task.completed ? "line-through" : ""}>{task.text}</span> */}
-            
+            <p className="font-serif">Status: {task.completed ? "Completed" : "Incomplete"}</p>
           </div>
           <div>
-            <p>Priority: {task.priority}</p>
-            <button className="mr-2 text-blue-500" onClick={handleEdit}>
+            <p className="font-serif">Priority: {task.priority}</p>
+            <button className="mr-2 text-blue-500 font-serif" onClick={handleEdit}>
               Edit
             </button>
-            <button className="text-red-500" onClick={() => deleteTask(task.id)}>
+            <button  className="text-red-500 font-serif" onClick={() => deleteTask(task.id)}>
               Delete
             </button>
           </div>
